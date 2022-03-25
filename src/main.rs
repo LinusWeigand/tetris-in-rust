@@ -32,9 +32,27 @@ fn main() {
 
     let mut game_over: bool = false;
 
-    while !game_over {
-        game_over = true;
+    //Print Field
+
+    for y in 0..FIELDHEIGHT {
+        let mut row: String = String::from("                 ");
+        for x in 0..FIELDWIDTH {
+            row.push_str(match field[y * FIELDWIDTH + x] {
+                0 => " ",
+                1 => "A",
+                2 => "B",
+                3 => "C",
+                4 => "D",
+                5 => "E",
+                6 => "F",
+                7 => "G",
+                8 => "=",
+                _ => "#",
+            });
+        }
+        println!("{}", row);
     }
+    
 }
 
 

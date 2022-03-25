@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "tetris_from_c_plus_plus"
+name = "tetris_in_rust"
 version = "0.1.0"
