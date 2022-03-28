@@ -30,29 +30,41 @@ fn main() {
         }
     }
 
+    //GAME LOOP
     let mut game_over: bool = false;
+    while !game_over {
 
-    //Print Field
+        //GAME TIMING
 
-    for y in 0..FIELDHEIGHT {
-        let mut row: String = String::from("                 ");
-        for x in 0..FIELDWIDTH {
-            row.push_str(match field[y * FIELDWIDTH + x] {
-                0 => " ",
-                1 => "A",
-                2 => "B",
-                3 => "C",
-                4 => "D",
-                5 => "E",
-                6 => "F",
-                7 => "G",
-                8 => "=",
-                _ => "#",
-            });
-        }
-        println!("{}", row);
-    }
+        //INPUT
+
+        //GAME LOGIC
+
+        //RENDER OUTPUT
     
+
+        //Print Field
+        print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+
+        for y in 0..FIELDHEIGHT {
+            let mut row: String = String::from("                 ");
+            for x in 0..FIELDWIDTH {
+                row.push_str(match field[y * FIELDWIDTH + x] {
+                    0 => " ",
+                    1 => "A",
+                    2 => "B",
+                    3 => "C",
+                    4 => "D",
+                    5 => "E",
+                    6 => "F",
+                    7 => "G",
+                    8 => "=",
+                    _ => "#",
+                });
+            }
+            println!("{}", row);
+        }
+    }
 }
 
 
