@@ -20,9 +20,15 @@ fn main() {
         }
     }
 
+    let current_piece = 1;
+    let current_rotation = 0;
+    let current_x = FIELDWIDTH / 2;
+    let current_y = 0;
+
     //GAME LOOP
     let mut game_over: bool = false;
     while !game_over {
+
 
         //GAME TIMING
 
@@ -35,6 +41,8 @@ fn main() {
 
         //Print Field
         print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
+
+        
 
         for y in 0..FIELDHEIGHT {
             let mut row: String = String::from("                 ");
@@ -53,6 +61,15 @@ fn main() {
                 });
             }
             println!("{}", row);
+        }
+
+        //Print current piece
+        for px in 0..4 {
+            for py in 0..4 {
+                if tetromino[current_piece].as_bytes()[rotate(px, py, current_rotation)] == b'X' {
+                    field[(current_y + py + 2)*FIELDWIDTH + (current_x + px + 2)] = current_piece + 65;
+                }
+            }
         }
     }
 }
